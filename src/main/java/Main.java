@@ -24,9 +24,12 @@ public class Main {
         webClient.getOptions().setThrowExceptionOnScriptError(false);
         webClient.setJavaScriptTimeout(100000);
 
+
+
         webClient.waitForBackgroundJavaScript(300000);
 
-        try {
+
+         try {
             HtmlPage page = webClient.getPage(MAIN_URL);
             System.out.println("Main page not emtpy " + page != null );
             HtmlElement htmlElement =  page.getFirstByXPath("//li[contains(@class, 'page-next')]");
@@ -35,7 +38,6 @@ public class Main {
             HtmlAnchor htmlAnchor1 = (HtmlAnchor) htmlElement.getFirstChild();
             System.out.println(htmlElement);
             System.out.println(htmlAnchor1);
-
 
             HtmlPage page1 = htmlAnchor1.click();
 
